@@ -40,7 +40,8 @@
                 <h1>Путь к себе начинается здесь</h1>
                 <p>Мой подход — интегративный, это гибкая работа, где соединяем психологию, гештальт-подход и практики, которые помогают лучше понять себя и свои потребности.
 <br>Вместе мы шаг за шагом ищем путь к ясности, внутренней силе и способности действовать, возвращая уверенность и внутреннюю гармонию.</p>
-                <a  class="xa" onclick="openPopup()">Подробнее &#8599;</a>
+                <a class="xa" href="#" onclick="openPopup(); return false;">Подробнее &#8599;</a>
+
             </div>
         </div>
     </div>
@@ -75,21 +76,28 @@
 </div>
 
 <script>
-  function openPopup() {
-    document.getElementById("overlay").style.display = "block";
-  }
-
-  function closePopup() {
-    document.getElementById("overlay").style.display = "none";
-  }
-
-  // Закрытие по клику на фон
-  document.getElementById("overlay").addEventListener("click", function(e) {
-    if (e.target === this) {
-      closePopup();
+  document.addEventListener("DOMContentLoaded", function() {
+    function openPopup() {
+      document.getElementById("overlay").style.display = "block";
     }
+
+    function closePopup() {
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    // Закрытие по клику на фон
+    document.getElementById("overlay").addEventListener("click", function(e) {
+      if (e.target === this) {
+        closePopup();
+      }
+    });
+
+    // Делаем функции глобальными, чтобы onclick работал
+    window.openPopup = openPopup;
+    window.closePopup = closePopup;
   });
 </script>
+
 
 
 
