@@ -65,6 +65,11 @@
             transition: opacity 0.3s ease;
         }
 
+
+        .nav a:hover {
+          text-decoration: underline;
+        }
+
         .header-btn {
             background: rgb(187, 187, 187);
             border: none;
@@ -80,6 +85,15 @@
             border-radius: 10px;
             transition: all 0.3s ease;
         }
+         .header-btn:hover {
+            background-color: #f0f0f0;
+            color: #333;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        }
+
+        
 
         /* Мобильное меню */
         .menu-toggle {
@@ -302,6 +316,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             margin-top: 20px;
+            cursor: pointer;
         }
         
         .xa:hover {
@@ -377,6 +392,42 @@
 
 
 
+  /* Фон модального окна */
+  .overlay {
+    display: none; /* скрыт по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* полупрозрачный тёмный фон */
+    z-index: 999;
+  }
+
+  /* Само окно */
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3f3f3f;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+
+
+
+
+
+
 
 
 
@@ -396,7 +447,6 @@
   text-align: left; /* выравнивание текста по левому краю */
 }
 
-/* Адаптация под планшеты и телефоны */
 @media (max-width: 768px) {
   .tx {
     font-size: 28px;
@@ -443,8 +493,8 @@
 .card {
   position: relative;
   flex: 1 1 calc(33.333% - 20px); /* 3 карточки в ряд */
-  max-width: 570px;
-  min-width: 280px;
+  max-width: 450px;
+  min-width: 300px;
   height: 400px;
   background-color: #3f3f3f;
   display: flex;
@@ -460,7 +510,7 @@
   background-color: rgb(92, 92, 92);
   color: rgb(0, 0, 0);
   border-radius: 10px;
-  width: 120px;
+  width: 130px;
   height: 60px;
   font-size: 16px;
   display: flex;
@@ -488,8 +538,12 @@
   line-height: 1.4;
 }
 
-
-
+@media (max-width: 768px) {
+            .card {
+              width: 1500%;
+            
+            }
+          }
 
 .about {
             position: relative;
@@ -523,6 +577,22 @@
             gap: 15px;
             transition: all 0.4s ease;
         }
+
+.about-cardq {
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            background-color: #fff;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            padding: 15px;
+            aspect-ratio: 1/1;
+            border: none;
+        } 
 
         .about-card {
             border-radius: 10px;
@@ -576,7 +646,7 @@
             line-height: 1.3;
             font-weight: 500;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
@@ -585,9 +655,23 @@
             line-height: 1.6;
             color: #e0e0e0;
             text-align: left;
+            
         }
 
-        /* Адаптивность для ноутбуков */
+         .about-text ul {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            text-align: left;
+            margin-left: 18px;
+            
+            
+            
+
+        }
+         
+
+      
         @media (max-width: 1440px) {
             .blocc {
                 gap: 25px;
@@ -656,7 +740,7 @@
             }
         }
 
-        /* Адаптивность для планшетов */
+        
         @media (max-width: 1024px) {
             .blocc {
                 flex-direction: column;
@@ -690,7 +774,7 @@
             }
         }
 
-        /* Адаптивность для мобильных устройств */
+        
         @media (max-width: 768px) {
             .about {
                 padding: 15px;
@@ -727,7 +811,6 @@
             }
         }
 
-        /* Для очень маленьких экранов */
         @media (max-width: 480px) {
             .about-card {
                 font-size: 14px;
@@ -849,18 +932,28 @@
   box-sizing: border-box;
 }
 
+        .btn:hover {
+            background-color: #f0f0f0;
+            color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        }
+
 .more-link {
   display: block;
   text-align: center;
-  text-decoration: underline;
+  text-decoration: none;
   color: #000000;
   font-size: 0.9rem;
   cursor: pointer;
 }
 
-/* ----------  Адаптив ---------- */
+        .more-link:hover {
+          text-decoration: underline;
+        }
 
-/* Планшеты (до 1024px) */
+
 @media (max-width: 1024px) {
   .rowa {
     flex-wrap: wrap;
@@ -1126,6 +1219,7 @@
   background-color: #3f3f3f;
   color: rgb(0, 0, 0);
   min-height: 20vh;
+
   padding: 30px 20px;
   border-top: 2px solid rgba(255,255,255,0.1);
 }
@@ -1165,4 +1259,11 @@
   margin-right: 12px;
   color: rgb(136, 136, 136);
 }
+
+
+
+
+
+
+
 
